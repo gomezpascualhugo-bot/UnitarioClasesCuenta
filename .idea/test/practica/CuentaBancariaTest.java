@@ -98,6 +98,10 @@ class CuentaBancariaTest {
 
     @Test
     void aplicarComisionMensual() {
+        cuenta.setSaldo(50001);
+        assertEquals(4999, cuenta.aplicarComisionMensual());
+        assertEquals(4999, cuenta.getSaldo());
+        cuenta.setSaldo(1000);
         assertEquals(998, cuenta.aplicarComisionMensual());
         assertEquals(998, cuenta.getSaldo());
         assertEquals(993, cuenta.aplicarComisionMensual());
@@ -109,6 +113,7 @@ class CuentaBancariaTest {
         cuenta.setBloqueada(true);
         assertEquals(3000,cuenta.aplicarComisionMensual());
         assertEquals(3000, cuenta.getSaldo());
+
     }
     @Test
     void bloquearSiSaldoCero() {
